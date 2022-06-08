@@ -1,5 +1,6 @@
 package ru.mirea.nagaevas.myapplication;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,12 +34,21 @@ public class StoryActivity extends AppCompatActivity {
         spending_sum = new ArrayList<>();
 
         displayDataArrays();
-        customAdapter = new CustomAdapter(StoryActivity.this, spending_id, spending_date,
+        customAdapter = new CustomAdapter(StoryActivity.this, this, spending_id, spending_date,
                 spending_category, spending_sum);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(StoryActivity.this));
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1){
+            recreate();
+        }
+    }
+
 
     void displayDataArrays() {
         Cursor cursor = myDb.readAllData();

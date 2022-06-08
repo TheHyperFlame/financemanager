@@ -11,6 +11,7 @@
         android:theme="@style/Theme.MyApplication">
         <activity
             android:name=".UpdateActivity"
+            android:label="Edit Spending"
             android:exported="false"
             android:parentActivityName=".StoryActivity" />
         <activity
@@ -24,11 +25,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".AddActivity"
-            android:exported="false"
-            android:label="Add New Spending"
-            android:parentActivityName=".StoryActivity" />
         <activity
             android:name=".StoryActivity"
             android:exported="false"

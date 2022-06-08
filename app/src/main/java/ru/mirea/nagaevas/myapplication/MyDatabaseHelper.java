@@ -82,4 +82,15 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Updated!", Toast.LENGTH_SHORT).show();
         }
     }
+
+    void deleteData(String row_id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
+        if (result == -1) {
+            Toast.makeText(context, "Error!", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(context, "Deleted!", Toast.LENGTH_SHORT).show();
+        }
+    }
 }

@@ -1,6 +1,7 @@
 package ru.mirea.nagaevas.myapplication;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -16,14 +17,17 @@ import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
+    private Activity activity;
     private Context context;
     private ArrayList<String> spending_id, spending_date, spending_category, spending_sum;
 
-    CustomAdapter(Context context,
+    CustomAdapter(Activity activity,
+                  Context context,
                   ArrayList spending_id,
                   ArrayList spending_date,
                   ArrayList spending_category,
                   ArrayList spending_sum) {
+        this.activity = activity;
         this.context = context;
         this.spending_id = spending_id;
         this.spending_date = spending_date;
@@ -41,7 +45,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull CustomAdapter.MyViewHolder holder, @SuppressLint("RecyclerView") int position) { //отображение текста в textview
-        holder.spending_id_txt.setText(String.valueOf(spending_id.get(position)));
         holder.spending_date_txt.setText(String.valueOf(spending_date.get(position)));
         holder.spending_category_txt.setText(String.valueOf(spending_category.get(position)));
         holder.spending_sum_txt.setText(String.valueOf(spending_sum.get(position)));
@@ -52,7 +55,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 intent.putExtra("id", String.valueOf(spending_id.get(position)));
                 intent.putExtra("category", String.valueOf(spending_category.get(position)));
                 intent.putExtra("sum", String.valueOf(spending_sum.get(position)));
-                context.startActivity(intent);
+                activity.startActivityForResult(intent, 1);
             }
         });
     }
