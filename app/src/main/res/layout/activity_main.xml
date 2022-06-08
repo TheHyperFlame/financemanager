@@ -45,7 +45,7 @@
         android:id="@+id/story_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View Spending Story"
+        android:text="View Spending History"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.98"
