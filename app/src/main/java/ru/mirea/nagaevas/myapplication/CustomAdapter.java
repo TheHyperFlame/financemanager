@@ -1,9 +1,12 @@
 package ru.mirea.nagaevas.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,11 +40,21 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomAdapter.MyViewHolder holder, int position) { //отображение текста в textview
+    public void onBindViewHolder(@NonNull CustomAdapter.MyViewHolder holder, @SuppressLint("RecyclerView") int position) { //отображение текста в textview
         holder.spending_id_txt.setText(String.valueOf(spending_id.get(position)));
         holder.spending_date_txt.setText(String.valueOf(spending_date.get(position)));
         holder.spending_category_txt.setText(String.valueOf(spending_category.get(position)));
         holder.spending_sum_txt.setText(String.valueOf(spending_sum.get(position)));
+        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, UpdateActivity.class);
+                intent.putExtra("id", String.valueOf(spending_id.get(position)));
+                intent.putExtra("category", String.valueOf(spending_category.get(position)));
+                intent.putExtra("sum", String.valueOf(spending_sum.get(position)));
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -52,6 +65,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView spending_id_txt, spending_date_txt, spending_category_txt, spending_sum_txt;
+        LinearLayout mainLayout;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -59,6 +73,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             spending_date_txt = itemView.findViewById(R.id.spending_date_txt);
             spending_category_txt = itemView.findViewById(R.id.spending_category_txt);
             spending_sum_txt = itemView.findViewById(R.id.spending_sum_txt);
+            mainLayout = itemView.findViewById(R.id.mainLayout);
         }
     }
 }

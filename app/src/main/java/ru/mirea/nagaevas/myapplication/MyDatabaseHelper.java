@@ -22,7 +22,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_SUM = "sum";
 
 
-    public MyDatabaseHelper(@Nullable Context context) {
+    MyDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
@@ -54,7 +54,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Error!", Toast.LENGTH_SHORT).show();
         }
         else {
-            Toast.makeText(context, "Success!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Added!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -66,5 +66,20 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             cursor = db.rawQuery(query, null);
         }
         return cursor;
+    }
+
+    void updateData(String row_id, String category, String sum) { //изменение данных в бд
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_CATEGORY, category);
+        cv.put(COLUMN_SUM, sum);
+
+        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
+        if (result == -1) {
+            Toast.makeText(context, "Error!", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(context, "Updated!", Toast.LENGTH_SHORT).show();
+        }
     }
 }

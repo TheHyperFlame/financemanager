@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ru.mirea.nagaevas.myapplication" >
+    package="ru.mirea.nagaevas.myapplication">
 
     <application
         android:allowBackup="true"
@@ -8,14 +8,19 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication" >
+        android:theme="@style/Theme.MyApplication">
+        <activity
+            android:name=".UpdateActivity"
+            android:exported="false"
+            android:parentActivityName=".StoryActivity" />
         <activity
             android:name=".MainActivity"
-            android:label="Finances"
-            android:exported="true">
+            android:exported="true"
+            android:label="Finances">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
