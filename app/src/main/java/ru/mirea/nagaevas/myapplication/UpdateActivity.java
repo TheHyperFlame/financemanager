@@ -36,7 +36,7 @@ public class UpdateActivity extends AppCompatActivity {
             public void onClick(View view) {
                 MyDatabaseHelper myDb = new MyDatabaseHelper(UpdateActivity.this);
                 sum = sum_edit.getText().toString().trim();
-                if (sum_edit.getText().length() > 0 && !sum_edit.getText().toString().equals("."))
+                if (sum_edit.getText().length() > 0 && sum_edit.getText().toString().matches("\\d+\\.?\\d*"))
                     myDb.updateData(id, category, sum); //... затем сохраняем их
             }
         });
@@ -51,18 +51,13 @@ public class UpdateActivity extends AppCompatActivity {
         });
 
         Spinner spinner = findViewById(R.id.categories);
-        // Создаем адаптер ArrayAdapter с помощью массива строк и стандартной разметки элемета spinner
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
-        // Определяем разметку для использования при выборе элемента
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Применяем адаптер к элементу spinner
         spinner.setAdapter(adapter);
 
         AdapterView.OnItemSelectedListener itemSelectedListener = new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                // Получаем выбранный объект
                 category = (String)parent.getItemAtPosition(position);
             }
 
@@ -71,7 +66,6 @@ public class UpdateActivity extends AppCompatActivity {
             }
         };
         spinner.setOnItemSelectedListener(itemSelectedListener);
-
     }
 
     @Override
@@ -88,7 +82,6 @@ public class UpdateActivity extends AppCompatActivity {
             id = getIntent().getStringExtra("id");
             category = getIntent().getStringExtra("category");
             sum = getIntent().getStringExtra("sum");
-            //category_edit.setText(category);
             sum_edit.setText(sum);
 
         } else { //если не получено данных с интента

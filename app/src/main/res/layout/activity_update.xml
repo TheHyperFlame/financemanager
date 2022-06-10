@@ -38,10 +38,10 @@
     <Button
         android:id="@+id/save_button"
         android:layout_width="match_parent"
-        android:layout_marginHorizontal="25sp"
-        android:layout_centerHorizontal="true"
         android:layout_height="94sp"
         android:layout_above="@id/delete_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="25sp"
         android:text="Save"
         app:cornerRadius="20sp" />
 
