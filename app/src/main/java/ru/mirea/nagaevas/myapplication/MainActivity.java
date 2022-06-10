@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     public static boolean isLightTheme = true;
     private String date;
     Float total_sum = 0f;
+    Float final_sum = 0f;
     Button story_button, add_button, diagram;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,9 +84,12 @@ public class MainActivity extends AppCompatActivity {
         enter_sum.setText(enter_sum.getText().subSequence(0, enter_sum.getText().length()-1));
     }
 
+    DecimalFormat df = new DecimalFormat("#.##");
     public void add_button_press(View view) {
         if (enter_sum.getText().length() > 0 && !enter_sum.getText().toString().equals("."))
-            myDb.addSpending(date, category_input.trim(), Float.valueOf(enter_sum.getText().toString().trim()));
+            final_sum = Float.valueOf(enter_sum.getText().toString());
+            final_sum = Float.valueOf(df.format(final_sum));
+            myDb.addSpending(date, category_input.trim(), Float.valueOf(final_sum));
         recreate();
     }
 
