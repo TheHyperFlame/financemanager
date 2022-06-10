@@ -68,49 +68,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-    public void button_1_press(View view) {
-        enter_sum.setText(enter_sum.getText() + "1");
-    }
-
-    public void button_2_press(View view) {
-        enter_sum.setText(enter_sum.getText() + "2");
-    }
-
-    public void button_3_press(View view) {
-        enter_sum.setText(enter_sum.getText() + "3");
-    }
-
-    public void button_4_press(View view) {
-        enter_sum.setText(enter_sum.getText() + "4");
-    }
-
-    public void button_5_press(View view) {
-        enter_sum.setText(enter_sum.getText() + "5");
-    }
-
-    public void button_6_press(View view) {
-        enter_sum.setText(enter_sum.getText() + "6");
-    }
-
-    public void button_7_press(View view) {
-        enter_sum.setText(enter_sum.getText() + "7");
-    }
-
-    public void button_8_press(View view) {
-        enter_sum.setText(enter_sum.getText() + "8");
-    }
-
-    public void button_9_press(View view) {
-        enter_sum.setText(enter_sum.getText() + "9");
-    }
-
-    public void button_0_press(View view) {
-        enter_sum.setText(enter_sum.getText() + "0");
-    }
-
-    public void button_dot_press(View view) {
-        enter_sum.setText(enter_sum.getText() + ".");
+    public void button_press(View view) {
+        enter_sum.setText(String.format("%s%s", enter_sum.getText(),
+                ((TextView) view).getText().toString()));
     }
 
     public void button_back_press(View view) {
@@ -121,8 +81,6 @@ public class MainActivity extends AppCompatActivity {
         myDb.addSpending(date, category_input.trim(), Float.valueOf(enter_sum.getText().toString().trim()));
         recreate();
     }
-
-
 
     public void transport_button_press(View view) {
         category_input = "Транспорт";
