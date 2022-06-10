@@ -93,4 +93,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Deleted!", Toast.LENGTH_SHORT).show();
         }
     }
+
+    Cursor readDataFromDate(String dateBegin, String dateEnd) { //чтение данных из бд в интервале дат
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE DATE BETWEEN " + dateBegin + " AND " + dateEnd;
+        SQLiteDatabase database = this.getReadableDatabase();
+        Cursor cursor = null;
+        if (database != null) {
+            cursor = database.rawQuery(query, null);
+        }
+        return cursor;
+    }
 }

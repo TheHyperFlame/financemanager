@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     MyDatabaseHelper myDb;
     private String date;
     Float total_sum = 0f;
-    Button story_button, add_button;
+    Button story_button, add_button, diagram;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         add_button = findViewById(R.id.add_button);
         story_button = findViewById(R.id.history);
         spent_today = findViewById(R.id.spent_today);
+        diagram = findViewById(R.id.diagram);
         category_input = "Другое";
         countTodaySpending();
 
@@ -50,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, StoryActivity.class);
             startActivityForResult(intent, 1);
             recreate();
+        });
+        diagram.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, ChartActivity.class);
+            startActivity(intent);
         });
 
 
@@ -116,6 +121,8 @@ public class MainActivity extends AppCompatActivity {
         myDb.addSpending(date, category_input.trim(), Float.valueOf(enter_sum.getText().toString().trim()));
         recreate();
     }
+
+
 
     public void transport_button_press(View view) {
         category_input = "Транспорт";

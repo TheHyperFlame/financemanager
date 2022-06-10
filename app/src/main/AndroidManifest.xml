@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".ChartActivity"
+            android:exported="false" />
+        <activity
             android:name=".UpdateActivity"
-            android:label="Edit Spending"
             android:exported="false"
+            android:label="Edit Spending"
             android:parentActivityName=".StoryActivity" />
         <activity
             android:name=".MainActivity"
@@ -21,6 +24,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
