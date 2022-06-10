@@ -254,6 +254,7 @@
         android:layout_below="@id/transport_text"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10sp"
+        android:onClick="clothes_button_press"
         app:srcCompat="@drawable/cloth"
         tools:ignore="SpeakableTextPresentCheck" />
 

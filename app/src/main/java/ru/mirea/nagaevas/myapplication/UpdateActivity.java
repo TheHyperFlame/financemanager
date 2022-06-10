@@ -27,7 +27,7 @@ public class UpdateActivity extends AppCompatActivity {
         intentDataManage(); //получаем даннные...
         save_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 MyDatabaseHelper myDb = new MyDatabaseHelper(UpdateActivity.this);
                 category = category_edit.getText().toString().trim();
                 sum = sum_edit.getText().toString().trim();
@@ -36,7 +36,7 @@ public class UpdateActivity extends AppCompatActivity {
         });
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 confirmDeleteDialog();
                 finish();
 
@@ -67,7 +67,6 @@ public class UpdateActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
                 myDB.deleteData(id);
-                finish();
             }
         });
         adBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
