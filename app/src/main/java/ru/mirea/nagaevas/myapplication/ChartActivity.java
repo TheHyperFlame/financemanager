@@ -10,11 +10,6 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.anychart.AnyChart;
-import com.anychart.AnyChartView;
-import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.chart.common.dataentry.ValueDataEntry;
-import com.anychart.charts.Pie;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
@@ -25,7 +20,9 @@ import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 
 public class ChartActivity extends AppCompatActivity {
@@ -48,7 +45,7 @@ public class ChartActivity extends AppCompatActivity {
         month_picker = findViewById(R.id.month_picker);
         year_picker = findViewById(R.id.year_picker);
         month_picker.setMaxValue(12);
-        month_picker.setMinValue(01);
+        month_picker.setMinValue(1);
         year_picker.setMinValue(2022);
         year_picker.setMaxValue(2022);
         date_text = findViewById(R.id.date_text);
@@ -90,23 +87,36 @@ public class ChartActivity extends AppCompatActivity {
     }
 
     public void buildChart() {
+        HashMap<String, Float> dataDict = new HashMap<>();
         List<PieEntry> dataValues = new ArrayList<>();
         Cursor cursor = myDb.readAllData();
         chart_spent = 0f;
         if (cursor.getCount() == 0) { //если нет записей в бд
             Toast.makeText(this, "Нет данных", Toast.LENGTH_SHORT).show();
         }
-        else
-        {
+        else {
             for (int i = 0; i < cursor.getCount(); i++) {
                 cursor.moveToNext();
-                if (date_text.getText().equals(cursor.getString(1).substring(0, cursor.getString(1).length() - 3)))
-                {
-                    dataValues.add(new PieEntry(cursor.getFloat(3), cursor.getString(2)));
+                if (date_text.getText().equals(cursor.getString(1).substring(0, cursor.getString(1).length() - 3))) {
+                    String category = cursor.getString(2);
+                    float sum = cursor.getFloat(3);
+                    if (!dataDict.containsKey(category)) {
+                        dataDict.put(category, sum);
+                        System.out.println(cursor.getString(2));
+                    }
+                    else {
+                        dataDict.replace(category, dataDict.get(category) + sum);
+                    }
                     chart_spent += cursor.getFloat(3);
                 }
             }
         }
+
+        List<?> keys = new ArrayList<>(dataDict.keySet());
+        System.out.println(keys.size());
+        for (int i = 0; i < keys.size(); i++)
+            dataValues.add(new PieEntry(dataDict.get(keys.get(i)), (String) keys.get(i)));
+
         chart_sum_text.setText("Потрачено за месяц: " + chart_spent);
         ArrayList<Integer> colors = new ArrayList<>();
         for (int color: ColorTemplate.MATERIAL_COLORS) {
