@@ -12,6 +12,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="14sp"
+            android:textStyle="bold"
             android:textAlignment="center"
             android:textSize="18sp" />
 
@@ -24,11 +25,13 @@
         android:background="?attr/colorSecondaryVariant"
         android:text="@string/spent_today"
         android:textSize="18sp"
+        android:textStyle="bold"
         tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/button_2"
         style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+        android:textStyle="bold"
         android:layout_width="52sp"
         android:layout_height="52sp"
         android:layout_below="@id/enter_sum"
@@ -52,6 +55,7 @@
         android:layout_toStartOf="@id/button_2"
         android:fontFamily="@font/khand_regular"
         android:onClick="button_press"
+        android:textStyle="bold"
         android:text="1"
         android:textSize="26sp"
         app:cornerRadius="26sp" />
@@ -64,6 +68,7 @@
         android:layout_marginStart="8sp"
         android:text="3"
         android:fontFamily="@font/khand_regular"
+        android:textStyle="bold"
         android:onClick="button_press"
         android:layout_marginTop="8sp"
         android:layout_width="52sp"
@@ -81,6 +86,7 @@
         android:onClick="button_press"
         android:layout_marginTop="8sp"
         android:layout_width="52sp"
+        android:textStyle="bold"
         android:layout_height="52sp"
         android:textSize="26sp"
         app:cornerRadius="26sp" />
@@ -93,6 +99,7 @@
         android:layout_below="@id/button_2"
         android:layout_marginTop="8sp"
         android:layout_marginEnd="8sp"
+        android:textStyle="bold"
         android:layout_toStartOf="@id/button_2"
         android:fontFamily="@font/khand_regular"
         android:text="4"
@@ -112,6 +119,7 @@
         android:layout_width="52sp"
         android:layout_height="52sp"
         android:textSize="26sp"
+        android:textStyle="bold"
         app:cornerRadius="26sp"
         android:onClick="button_press" />
 
@@ -123,6 +131,7 @@
         android:text="8"
         android:fontFamily="@font/khand_regular"
         android:layout_marginTop="8sp"
+        android:textStyle="bold"
         android:layout_width="52sp"
         android:layout_height="52sp"
         android:textSize="26sp"
@@ -141,6 +150,7 @@
         android:layout_width="52sp"
         android:layout_height="52sp"
         android:textSize="26sp"
+        android:textStyle="bold"
         app:cornerRadius="26sp"
         android:onClick="button_press" />
 
@@ -155,6 +165,7 @@
         android:layout_marginTop="8sp"
         android:layout_width="52sp"
         android:layout_height="52sp"
+        android:textStyle="bold"
         android:textSize="26sp"
         app:cornerRadius="26sp"
         android:onClick="button_press" />
@@ -168,6 +179,7 @@
         android:fontFamily="@font/khand_regular"
         android:layout_marginTop="8sp"
         android:layout_width="52sp"
+        android:textStyle="bold"
         android:layout_height="52sp"
         android:textSize="26sp"
         app:cornerRadius="26sp"
@@ -183,6 +195,7 @@
         android:fontFamily="@font/khand_regular"
         android:layout_marginTop="8sp"
         android:layout_width="52sp"
+        android:textStyle="bold"
         android:layout_height="52sp"
         android:textSize="26sp"
         app:cornerRadius="26sp"
@@ -200,6 +213,7 @@
         android:fontFamily="@font/khand_regular"
         android:text="B"
         android:textSize="26sp"
+        android:textStyle="bold"
         app:cornerRadius="26sp"
         android:onClick="button_back_press" />
 
@@ -211,7 +225,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16sp"
         android:layout_toStartOf="@id/cloth_text"
-        android:text="@string/diagram"
+        android:text="Диаграмма"
+        android:textStyle="bold"
         android:textSize="18sp"
         app:cornerRadius="20sp" />
 
@@ -222,6 +237,7 @@
         android:layout_above="@id/spent_today"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16sp"
+        android:textStyle="bold"
         android:layout_toEndOf="@id/cloth_text"
         android:onClick="add_button_press"
         android:text="@string/add_button"
@@ -236,6 +252,7 @@
         android:layout_marginHorizontal="120sp"
         android:text="@string/history"
         android:layout_alignParentBottom="true"
+        android:textStyle="bold"
         android:textSize="18sp"
         app:cornerRadius="18sp"
         tools:ignore="TouchTargetSizeCheck" />
@@ -248,6 +265,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16sp"
         android:onClick="transport_button_press"
+        android:textStyle="bold"
         app:srcCompat="@drawable/transport"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -256,6 +274,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/transport_button"
+        android:textStyle="bold"
         android:layout_centerInParent="true"
         android:text="@string/transport_button"
         android:textSize="16sp" />
@@ -269,6 +288,7 @@
         android:layout_marginTop="16sp"
         android:layout_marginEnd="45sp"
         android:layout_toStartOf="@id/button_2"
+        android:textStyle="bold"
         android:onClick="food_button_press"
         app:srcCompat="@drawable/food" />
 
@@ -278,6 +298,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/food_button"
         android:layout_marginEnd="60sp"
+        android:textStyle="bold"
         android:layout_toStartOf="@id/transport_button"
         android:text="@string/food_button"
         android:textSize="16sp" />
@@ -290,6 +311,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10sp"
         android:onClick="clothes_button_press"
+        android:textStyle="bold"
         app:srcCompat="@drawable/cloth"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -298,6 +320,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/cloth_button"
+        android:textStyle="bold"
         android:layout_centerInParent="true"
         android:text="@string/cloth_button"
         android:textSize="16sp" />
@@ -310,6 +333,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10sp"
         android:layout_marginEnd="45sp"
+        android:textStyle="bold"
         android:layout_toStartOf="@id/button_2"
         android:onClick="fun_button_press"
         app:srcCompat="@drawable/games" />
@@ -321,6 +345,7 @@
         android:layout_below="@id/games_button"
         android:layout_marginEnd="30sp"
         android:layout_toStartOf="@id/transport_button"
+        android:textStyle="bold"
         android:text="@string/games_button"
         android:textSize="14sp" />
 
@@ -331,6 +356,7 @@
         android:layout_below="@id/button_0"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="45sp"
+        android:textStyle="bold"
         android:layout_marginTop="16sp"
         android:layout_toEndOf="@id/button_2"
         android:onClick="house_button_press"
@@ -342,6 +368,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/home_button"
         android:layout_marginStart="55sp"
+        android:textStyle="bold"
         android:layout_toEndOf="@id/transport_button"
         android:text="@string/home_button"
         android:textSize="16sp" />
@@ -353,6 +380,7 @@
         android:layout_below="@id/transport_text"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="45sp"
+        android:textStyle="bold"
         android:layout_marginTop="10sp"
         android:layout_toEndOf="@id/button_2"
         android:onClick="other_button_press"
@@ -364,6 +392,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/other_button"
         android:layout_marginStart="45sp"
+        android:textStyle="bold"
         android:layout_toEndOf="@id/transport_button"
         android:text="@string/other_button"
         android:textSize="16sp" />

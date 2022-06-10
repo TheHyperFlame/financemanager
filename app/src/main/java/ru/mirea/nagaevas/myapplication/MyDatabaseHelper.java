@@ -76,10 +76,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
         if (result == -1) {
-            Toast.makeText(context, "Error!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Ошибка!", Toast.LENGTH_SHORT).show();
         }
         else {
-            Toast.makeText(context, "Updated!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Обновлено!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -87,10 +87,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
         if (result == -1) {
-            Toast.makeText(context, "Error!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Ошибка!", Toast.LENGTH_SHORT).show();
         }
         else {
-            Toast.makeText(context, "Deleted!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Удалено!", Toast.LENGTH_SHORT).show();
         }
     }
 
