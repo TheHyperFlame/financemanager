@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -17,7 +18,9 @@ import java.util.Calendar;
 
 
 public class MainActivity extends AppCompatActivity {
-    EditText sum_input, category_input;
+    String category_input;
+    TextView enter_sum;
+    private String sum;
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
     private String date;
@@ -30,19 +33,71 @@ public class MainActivity extends AppCompatActivity {
         calendar = Calendar.getInstance();
         dateFormat = new SimpleDateFormat("MM-dd-yyyy");
         date = dateFormat.format(calendar.getTime());
-        sum_input = findViewById(R.id.sum_input);
-        category_input = findViewById(R.id.category_input);
+        enter_sum = findViewById(R.id.enter_sum);
         add_button = findViewById(R.id.add_button);
-        add_button.setOnClickListener(view -> {
-            MyDatabaseHelper myDb = new MyDatabaseHelper(MainActivity.this);
-            myDb.addSpending(date, category_input.getText().toString().trim(), Float.valueOf(sum_input.getText().toString().trim()));
-
-        });
-        story_button = findViewById(R.id.story_button);
+        story_button = findViewById(R.id.history);
         story_button.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, StoryActivity.class);
             startActivity(intent);
         });
 
     }
+
+    public void button_1_press(View view) {
+        enter_sum.setText(enter_sum.getText() + "1");
+    }
+
+    public void button_2_press(View view) {
+        enter_sum.setText(enter_sum.getText() + "2");
+    }
+
+    public void button_3_press(View view) {
+        enter_sum.setText(enter_sum.getText() + "3");
+    }
+
+    public void button_4_press(View view) {
+        enter_sum.setText(enter_sum.getText() + "4");
+    }
+
+    public void button_5_press(View view) {
+        enter_sum.setText(enter_sum.getText() + "5");
+    }
+
+    public void button_6_press(View view) {
+        enter_sum.setText(enter_sum.getText() + "6");
+    }
+
+    public void button_7_press(View view) {
+        enter_sum.setText(enter_sum.getText() + "7");
+    }
+
+    public void button_8_press(View view) {
+        enter_sum.setText(enter_sum.getText() + "8");
+    }
+
+    public void button_9_press(View view) {
+        enter_sum.setText(enter_sum.getText() + "9");
+    }
+
+    public void button_0_press(View view) {
+        enter_sum.setText(enter_sum.getText() + "0");
+    }
+
+    public void button_dot_press(View view) {
+        enter_sum.setText(enter_sum.getText() + ".");
+    }
+
+    public void button_back_press(View view) {
+        enter_sum.setText(enter_sum.getText().subSequence(0, enter_sum.getText().length()-1));
+    }
+
+    public void add_button_press(View view) {
+        MyDatabaseHelper myDb = new MyDatabaseHelper(MainActivity.this);
+        myDb.addSpending(date, category_input.trim(), Float.valueOf(enter_sum.getText().toString().trim()));
+    }
+
+    public void transport_button_press(View view) {
+        category_input = "Транспорт";
+    }
+
 }
