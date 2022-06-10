@@ -33,21 +33,15 @@ public class MainActivity extends AppCompatActivity {
         sum_input = findViewById(R.id.sum_input);
         category_input = findViewById(R.id.category_input);
         add_button = findViewById(R.id.add_button);
-        add_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MyDatabaseHelper myDb = new MyDatabaseHelper(MainActivity.this);
-                myDb.addSpending(date, category_input.getText().toString().trim(), Float.valueOf(sum_input.getText().toString().trim()));
+        add_button.setOnClickListener(view -> {
+            MyDatabaseHelper myDb = new MyDatabaseHelper(MainActivity.this);
+            myDb.addSpending(date, category_input.getText().toString().trim(), Float.valueOf(sum_input.getText().toString().trim()));
 
-            }
         });
         story_button = findViewById(R.id.story_button);
-        story_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, StoryActivity.class);
-                startActivity(intent);
-            }
+        story_button.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, StoryActivity.class);
+            startActivity(intent);
         });
 
     }

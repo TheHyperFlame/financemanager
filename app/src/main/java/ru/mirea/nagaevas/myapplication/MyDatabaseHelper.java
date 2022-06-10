@@ -43,13 +43,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
     }
 
-    void addSpending(String date, String category, Float sum) { //добавление записи в бд. cv - контейнер для данных, чтобы передавать их в бд
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        cv.put(COLUMN_DATE, date);
-        cv.put(COLUMN_CATEGORY, category);
-        cv.put(COLUMN_SUM, String.valueOf(sum));
-        long result = db.insert(TABLE_NAME, null, cv);
+    void addSpending(String date, String category, Float sum) { //добавление записи в бд. contentValues - контейнер для данных, чтобы передавать их в бд
+        SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_DATE, date);
+        contentValues.put(COLUMN_CATEGORY, category);
+        contentValues.put(COLUMN_SUM, String.valueOf(sum));
+        long result = database.insert(TABLE_NAME, null, contentValues);
         if (result == -1) {
             Toast.makeText(context, "Error!", Toast.LENGTH_SHORT).show();
         }
@@ -60,10 +60,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     Cursor readAllData() { //чтение данных из бд
         String query = "SELECT * FROM " + TABLE_NAME;
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase database = this.getReadableDatabase();
         Cursor cursor = null;
-        if (db != null) {
-            cursor = db.rawQuery(query, null);
+        if (database != null) {
+            cursor = database.rawQuery(query, null);
         }
         return cursor;
     }
