@@ -19,15 +19,16 @@
         android:inputType="textPersonName"
         tools:ignore="TouchTargetSizeCheck" />
 
-    <EditText
-        android:id="@+id/category_edit"
+    <Spinner
+        android:id="@+id/categories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100sp"
         android:layout_below="@id/sum_edit"
-        android:layout_marginTop="93sp"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="100sp"
+        android:layout_marginTop="93sp"
         android:ems="10"
+        android:backgroundTint="?attr/colorPrimary"
         android:hint="Category"
         android:inputType="textPersonName"
         tools:ignore="TouchTargetSizeCheck" />

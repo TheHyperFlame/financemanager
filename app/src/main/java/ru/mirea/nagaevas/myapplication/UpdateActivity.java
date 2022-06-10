@@ -8,21 +8,24 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class UpdateActivity extends AppCompatActivity {
 
-    EditText category_edit, sum_edit;
+    EditText categor_edit, sum_edit;
     Button save_button, delete_button;
     String id, category, sum;
+    String[] categories = {"Еда", "Транспорт", "Дом", "Развлечения", "Одежда", "Другое"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
-        category_edit = findViewById(R.id.category_edit);
         sum_edit = findViewById(R.id.sum_edit);
         save_button = findViewById(R.id.save_button);
         delete_button = findViewById(R.id.delete_button);
@@ -32,7 +35,6 @@ public class UpdateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 MyDatabaseHelper myDb = new MyDatabaseHelper(UpdateActivity.this);
-                category = category_edit.getText().toString().trim();
                 sum = sum_edit.getText().toString().trim();
                 myDb.updateData(id, category, sum); //... затем сохраняем их
             }
@@ -46,6 +48,29 @@ public class UpdateActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        Spinner spinner = findViewById(R.id.categories);
+        // Создаем адаптер ArrayAdapter с помощью массива строк и стандартной разметки элемета spinner
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
+        // Определяем разметку для использования при выборе элемента
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Применяем адаптер к элементу spinner
+        spinner.setAdapter(adapter);
+
+        AdapterView.OnItemSelectedListener itemSelectedListener = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                // Получаем выбранный объект
+                category = (String)parent.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        };
+        spinner.setOnItemSelectedListener(itemSelectedListener);
+
     }
 
     @Override
@@ -62,7 +87,7 @@ public class UpdateActivity extends AppCompatActivity {
             id = getIntent().getStringExtra("id");
             category = getIntent().getStringExtra("category");
             sum = getIntent().getStringExtra("sum");
-            category_edit.setText(category);
+            //category_edit.setText(category);
             sum_edit.setText(sum);
 
         } else { //если не получено данных с интента
