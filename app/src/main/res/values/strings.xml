@@ -4,7 +4,12 @@
     <string name="spent_today">Потрачено сегодня:</string>
     <string name="add_button">Добавить</string>
     <string name="history">История</string>
+    <string name="diagram">Диаграма</string>
 
     <string name="transport_button">Транспорт</string>
     <string name="cloth_button">Одежда</string>
+    <string name="food_button">Еда</string>
+    <string name="home_button">Дом</string>
+    <string name="games_button">Развлечения</string>
+    <string name="other_button">Разное</string>
 </resources>
