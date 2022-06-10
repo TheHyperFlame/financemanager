@@ -28,11 +28,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="100sp"
         android:layout_marginTop="93sp"
-        android:ems="10"
         android:backgroundTint="?attr/colorPrimary"
+        android:ems="10"
         android:hint="Category"
-        android:textStyle="bold"
         android:inputType="textPersonName"
+        android:textStyle="bold"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
