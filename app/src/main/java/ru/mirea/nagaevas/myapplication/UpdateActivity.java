@@ -36,7 +36,8 @@ public class UpdateActivity extends AppCompatActivity {
             public void onClick(View view) {
                 MyDatabaseHelper myDb = new MyDatabaseHelper(UpdateActivity.this);
                 sum = sum_edit.getText().toString().trim();
-                myDb.updateData(id, category, sum); //... затем сохраняем их
+                if (sum_edit.getText().length() > 0 && !sum_edit.getText().toString().equals("."))
+                    myDb.updateData(id, category, sum); //... затем сохраняем их
             }
         });
 
@@ -91,26 +92,10 @@ public class UpdateActivity extends AppCompatActivity {
             sum_edit.setText(sum);
 
         } else { //если не получено данных с интента
-            Toast.makeText(this, "No data to update", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Нет данных для обновления", Toast.LENGTH_SHORT).show();
         }
     }
 
-    void confirmDeleteDialog() {
-        AlertDialog.Builder adBuilder = new AlertDialog.Builder(this);
-        adBuilder.setTitle("Delete");
-        adBuilder.setMessage("Are you sure you want to delete this spending?");
-        adBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
 
-            }
-        });
-        adBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
 
-            }
-        });
-        adBuilder.create().show();
-    }
 }

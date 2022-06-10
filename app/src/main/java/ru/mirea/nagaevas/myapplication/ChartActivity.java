@@ -32,8 +32,6 @@ public class ChartActivity extends AppCompatActivity {
     TextView date_text, chart_sum_text;
     String date_string;
     PieChart pieChart;
-    String[] months = {"Jan", "Feb", "Mar"};
-    int[] spendings = {100, 200, 300};
     MyDatabaseHelper myDb;
     Float chart_spent;
 

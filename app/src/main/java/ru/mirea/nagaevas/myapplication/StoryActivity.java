@@ -53,7 +53,7 @@ public class StoryActivity extends AppCompatActivity {
     void displayDataArrays() {
         Cursor cursor = myDb.readAllData();
         if (cursor.getCount() == 0) { //если нет записей в бд
-            Toast.makeText(this, "No spendings", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Нет записей", Toast.LENGTH_SHORT).show();
         }
         else {
             while (cursor.moveToNext()) {

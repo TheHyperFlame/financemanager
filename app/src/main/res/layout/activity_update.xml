@@ -11,11 +11,12 @@
         android:id="@+id/sum_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100sp"
-        android:ems="10"
-        android:layout_marginTop="150sp"
-        android:hint="Sum"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="100sp"
+        android:layout_marginTop="150sp"
+        android:ems="10"
+        android:hint="Sum"
+        android:textStyle="bold"
         android:inputType="textPersonName"
         tools:ignore="TouchTargetSizeCheck" />
 
@@ -30,6 +31,7 @@
         android:ems="10"
         android:backgroundTint="?attr/colorPrimary"
         android:hint="Category"
+        android:textStyle="bold"
         android:inputType="textPersonName"
         tools:ignore="TouchTargetSizeCheck" />
 
