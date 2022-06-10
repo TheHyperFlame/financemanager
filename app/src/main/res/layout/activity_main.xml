@@ -6,15 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/enter_sum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14sp"
-        android:text="@string/enter_sum"
-        android:textAlignment="center"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/enter_sum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14sp"
+            android:textAlignment="center"
+            android:textSize="18sp" />
 
     <TextView
         android:id="@+id/spent_today"
@@ -24,7 +23,8 @@
         android:layout_marginTop="10sp"
         android:background="?attr/colorSecondaryVariant"
         android:text="@string/spent_today"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/button_2"
@@ -35,6 +35,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8sp"
         android:fontFamily="@font/khand_regular"
+        android:onClick="button_2_press"
         android:text="2"
         android:textSize="26sp"
         app:cornerRadius="26sp" />
@@ -50,6 +51,7 @@
         android:layout_marginEnd="8sp"
         android:layout_toStartOf="@id/button_2"
         android:fontFamily="@font/khand_regular"
+        android:onClick="button_1_press"
         android:text="1"
         android:textSize="26sp"
         app:cornerRadius="26sp" />
@@ -62,6 +64,7 @@
         android:layout_marginStart="8sp"
         android:text="3"
         android:fontFamily="@font/khand_regular"
+        android:onClick="button_3_press"
         android:layout_marginTop="8sp"
         android:layout_width="52sp"
         android:layout_height="52sp"
@@ -75,6 +78,7 @@
         android:layout_centerHorizontal="true"
         android:text="5"
         android:fontFamily="@font/khand_regular"
+        android:onClick="button_5_press"
         android:layout_marginTop="8sp"
         android:layout_width="52sp"
         android:layout_height="52sp"
@@ -93,7 +97,8 @@
         android:fontFamily="@font/khand_regular"
         android:text="4"
         android:textSize="26sp"
-        app:cornerRadius="26sp" />
+        app:cornerRadius="26sp"
+        android:onClick="button_4_press" />
 
     <Button
         android:id="@+id/button_6"
@@ -107,7 +112,8 @@
         android:layout_width="52sp"
         android:layout_height="52sp"
         android:textSize="26sp"
-        app:cornerRadius="26sp" />
+        app:cornerRadius="26sp"
+        android:onClick="button_6_press" />
 
     <Button
         android:id="@+id/button_8"
@@ -120,7 +126,8 @@
         android:layout_width="52sp"
         android:layout_height="52sp"
         android:textSize="26sp"
-        app:cornerRadius="26sp" />
+        app:cornerRadius="26sp"
+        android:onClick="button_8_press" />
 
     <Button
         android:id="@+id/button_7"
@@ -134,7 +141,8 @@
         android:layout_width="52sp"
         android:layout_height="52sp"
         android:textSize="26sp"
-        app:cornerRadius="26sp" />
+        app:cornerRadius="26sp"
+        android:onClick="button_7_press" />
 
     <Button
         android:id="@+id/button_9"
@@ -148,7 +156,8 @@
         android:layout_width="52sp"
         android:layout_height="52sp"
         android:textSize="26sp"
-        app:cornerRadius="26sp" />
+        app:cornerRadius="26sp"
+        android:onClick="button_9_press" />
 
     <Button
         android:id="@+id/button_0"
@@ -161,7 +170,8 @@
         android:layout_width="52sp"
         android:layout_height="52sp"
         android:textSize="26sp"
-        app:cornerRadius="26sp" />
+        app:cornerRadius="26sp"
+        android:onClick="button_0_press" />
 
     <Button
         android:id="@+id/button_point"
@@ -175,7 +185,8 @@
         android:layout_width="52sp"
         android:layout_height="52sp"
         android:textSize="26sp"
-        app:cornerRadius="26sp" />
+        app:cornerRadius="26sp"
+        android:onClick="button_dot_press" />
 
     <Button
         android:id="@+id/button_del"
@@ -189,7 +200,8 @@
         android:fontFamily="@font/khand_regular"
         android:text="B"
         android:textSize="26sp"
-        app:cornerRadius="26sp" />
+        app:cornerRadius="26sp"
+        android:onClick="button_back_press" />
 
     <Button
         android:id="@+id/diagram"
@@ -211,21 +223,22 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16sp"
         android:layout_toEndOf="@id/cloth_text"
+        android:onClick="add_button_press"
         android:text="@string/add_button"
         android:textSize="18sp"
-        app:cornerRadius="20sp" />
+        app:cornerRadius="18sp" />
 
     <Button
         android:id="@+id/history"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/spent_today"
-        android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="120sp"
-        android:layout_marginTop="10sp"
+        android:layout_marginTop="5dp"
         android:text="@string/history"
         android:textSize="18sp"
-        app:cornerRadius="18sp" />
+        app:cornerRadius="18sp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <ImageButton
         android:id="@+id/transport_button"
@@ -234,7 +247,9 @@
         android:layout_below="@id/button_0"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16sp"
-        app:srcCompat="@drawable/transport" />
+        android:onClick="transport_button_press"
+        app:srcCompat="@drawable/transport"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/transport_text"
@@ -273,7 +288,9 @@
         android:layout_below="@id/transport_text"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10sp"
-        app:srcCompat="@drawable/cloth" />
+        android:onClick="clothes_button_press"
+        app:srcCompat="@drawable/cloth"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/cloth_text"
