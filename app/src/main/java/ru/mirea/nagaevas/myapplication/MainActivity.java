@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     Button story_button, add_button, diagram;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         myDb = new MyDatabaseHelper(MainActivity.this);
         setContentView(R.layout.activity_main);
