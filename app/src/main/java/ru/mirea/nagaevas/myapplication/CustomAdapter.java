@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,6 +22,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     private Activity activity;
     private Context context;
     private ArrayList<String> spending_id, spending_date, spending_category, spending_sum;
+    Animation translate_anim;
 
     CustomAdapter(Activity activity,
                   Context context,
@@ -77,6 +80,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             spending_category_txt = itemView.findViewById(R.id.spending_category_txt);
             spending_sum_txt = itemView.findViewById(R.id.spending_sum_txt);
             mainLayout = itemView.findViewById(R.id.mainLayout);
+            translate_anim = AnimationUtils.loadAnimation(context, R.anim.translate_anim);
+            mainLayout.setAnimation(translate_anim);
         }
     }
 }

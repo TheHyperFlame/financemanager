@@ -36,7 +36,7 @@
                 android:textSize="16sp"
                 android:layout_marginStart="16sp"
                 android:layout_marginTop="4sp"
-                android:text="Date"
+                android:text="Дата"
                 app:layout_constraintStart_toEndOf="@+id/spending_id_txt"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16sp"
-                android:text="Category"
+                android:text="Категория"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/spending_id_txt"
