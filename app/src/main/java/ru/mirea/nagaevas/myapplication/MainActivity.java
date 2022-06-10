@@ -2,20 +2,15 @@ package ru.mirea.nagaevas.myapplication;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -28,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
     MyDatabaseHelper myDb;
+    public static boolean isLightTheme = true;
     private String date;
     Float total_sum = 0f;
     Button story_button, add_button, diagram;
@@ -57,7 +53,17 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-
+        findViewById(R.id.theme_change).setOnClickListener(view -> {
+            if (isLightTheme) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                isLightTheme = false;
+            }
+            else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                isLightTheme = true;
+            }
+            recreate();
+        });
     }
 
     @Override
@@ -78,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void add_button_press(View view) {
-        myDb.addSpending(date, category_input.trim(), Float.valueOf(enter_sum.getText().toString().trim()));
+        if (enter_sum.getText().length() > 0 && !enter_sum.getText().toString().equals("."))
+            myDb.addSpending(date, category_input.trim(), Float.valueOf(enter_sum.getText().toString().trim()));
         recreate();
     }
 
