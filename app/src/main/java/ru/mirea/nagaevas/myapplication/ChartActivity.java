@@ -19,6 +19,7 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -115,6 +116,8 @@ public class ChartActivity extends AppCompatActivity {
         for (int i = 0; i < keys.size(); i++)
             dataValues.add(new PieEntry(dataDict.get(keys.get(i)), (String) keys.get(i)));
 
+        DecimalFormat df = new DecimalFormat("#.##");
+        chart_spent = Float.valueOf(df.format(chart_spent));
         chart_sum_text.setText("Потрачено за месяц: " + chart_spent);
         ArrayList<Integer> colors = new ArrayList<>();
         for (int color: ColorTemplate.MATERIAL_COLORS) {

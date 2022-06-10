@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         }
         DecimalFormat df = new DecimalFormat("#.##");
         total_sum = Float.valueOf(df.format(total_sum));
-        spent_today.setText(spent_today.getText() + " " + total_sum.toString().trim() + "₽");
+        spent_today.setText("Потрачено сегодня: " + total_sum.toString().trim() + "₽");
 
 
     }
