@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,46 +8,37 @@
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pie_chart"
-        android:layout_width="304dp"
-        android:layout_height="281dp"
-        app:layout_constraintBottom_toTopOf="@+id/chart_sum_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="304sp"
+        android:layout_height="281sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30sp"
+        tools:ignore="MissingClass" />
 
     <NumberPicker
         android:id="@+id/month_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.866" />
+        android:layout_marginEnd="60sp"
+        android:layout_above="@id/chart_build_button"
+        android:layout_toStartOf="@id/date_text" />
 
     <NumberPicker
         android:id="@+id/year_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toEndOf="@+id/month_picker"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.864" />
+        android:layout_marginStart="60dp"
+        android:layout_above="@id/chart_build_button"
+        android:layout_toEndOf="@id/date_text" />
 
     <Button
         android:id="@+id/chart_build_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20sp"
         android:onClick="button_build_press"
-        android:text="Build"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="Build" />
 
     <TextView
         android:id="@+id/date_text"
@@ -55,11 +46,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="80dp"
         android:text="Date"
+        android:layout_centerHorizontal="true"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/chart_build_button"
-        app:layout_constraintEnd_toStartOf="@+id/year_picker"
-        app:layout_constraintHorizontal_bias="0.453"
-        app:layout_constraintStart_toEndOf="@+id/month_picker" />
+        android:layout_above="@id/chart_build_button" />
 
     <TextView
         android:id="@+id/chart_sum_text"
@@ -68,9 +57,8 @@
         android:layout_marginBottom="84dp"
         android:text=""
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/date_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/date_text" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
 

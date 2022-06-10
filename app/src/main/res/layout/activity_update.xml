@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,57 +9,45 @@
 
     <EditText
         android:id="@+id/sum_edit"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginEnd="102dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100sp"
         android:ems="10"
+        android:layout_marginTop="150sp"
         android:hint="Sum"
+        android:layout_centerHorizontal="true"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/category_edit"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="93dp"
-        android:layout_marginEnd="104dp"
+        android:layout_marginStart="100sp"
+        android:layout_below="@id/sum_edit"
+        android:layout_marginTop="93sp"
+        android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="Category"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.34"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/save_button"
-        android:layout_width="365dp"
-        android:layout_height="94dp"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="25sp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="94sp"
+        android:layout_above="@id/delete_button"
         android:text="Save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/category_edit" />
+        app:cornerRadius="20sp" />
 
     <Button
         android:id="@+id/delete_button"
-        android:layout_width="365dp"
-        android:layout_height="94dp"
+        android:layout_width="match_parent"
+        android:layout_height="94sp"
+        android:layout_marginHorizontal="25sp"
         android:text="Delete"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/category_edit"
-        app:layout_constraintVertical_bias="0.818" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_alignParentBottom="true"
+        app:cornerRadius="20sp" />
+</RelativeLayout>
