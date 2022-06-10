@@ -3,6 +3,7 @@ package ru.mirea.nagaevas.myapplication;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -22,15 +23,12 @@ import java.util.Calendar;
 
 
 public class MainActivity extends AppCompatActivity {
-    private String TAG = MainActivity.class.getSimpleName();
     String category_input;
     TextView enter_sum, spent_today;
-    private String sum;
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
     MyDatabaseHelper myDb;
     private String date;
-    Context context;
     Float total_sum = 0f;
     Button story_button, add_button;
     @Override
@@ -45,13 +43,24 @@ public class MainActivity extends AppCompatActivity {
         add_button = findViewById(R.id.add_button);
         story_button = findViewById(R.id.history);
         spent_today = findViewById(R.id.spent_today);
+        countTodaySpending();
         story_button.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, StoryActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, 1);
+            recreate();
         });
-        countTodaySpending();
+
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1){
+            recreate();
+        }
+    }
+
 
     public void button_1_press(View view) {
         enter_sum.setText(enter_sum.getText() + "1");
@@ -129,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         }
         DecimalFormat df = new DecimalFormat("#.##");
         total_sum = Float.valueOf(df.format(total_sum));
-        spent_today.setText(spent_today.getText() + " " + total_sum.toString().trim());
+        spent_today.setText(spent_today.getText() + " " + total_sum.toString().trim() + "₽");
 
 
     }
