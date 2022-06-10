@@ -35,6 +35,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8sp"
         android:fontFamily="@font/khand_regular"
+<<<<<<< Updated upstream
+=======
+        android:onClick="button_press"
+>>>>>>> Stashed changes
         android:text="2"
         android:textSize="26sp"
         app:cornerRadius="26sp" />
@@ -50,6 +54,10 @@
         android:layout_marginEnd="8sp"
         android:layout_toStartOf="@id/button_2"
         android:fontFamily="@font/khand_regular"
+<<<<<<< Updated upstream
+=======
+        android:onClick="button_press"
+>>>>>>> Stashed changes
         android:text="1"
         android:textSize="26sp"
         app:cornerRadius="26sp" />
@@ -62,6 +70,10 @@
         android:layout_marginStart="8sp"
         android:text="3"
         android:fontFamily="@font/khand_regular"
+<<<<<<< Updated upstream
+=======
+        android:onClick="button_press"
+>>>>>>> Stashed changes
         android:layout_marginTop="8sp"
         android:layout_width="52sp"
         android:layout_height="52sp"
@@ -75,6 +87,10 @@
         android:layout_centerHorizontal="true"
         android:text="5"
         android:fontFamily="@font/khand_regular"
+<<<<<<< Updated upstream
+=======
+        android:onClick="button_press"
+>>>>>>> Stashed changes
         android:layout_marginTop="8sp"
         android:layout_width="52sp"
         android:layout_height="52sp"
@@ -93,7 +109,12 @@
         android:fontFamily="@font/khand_regular"
         android:text="4"
         android:textSize="26sp"
+<<<<<<< Updated upstream
         app:cornerRadius="26sp" />
+=======
+        app:cornerRadius="26sp"
+        android:onClick="button_press" />
+>>>>>>> Stashed changes
 
     <Button
         android:id="@+id/button_6"
@@ -107,7 +128,12 @@
         android:layout_width="52sp"
         android:layout_height="52sp"
         android:textSize="26sp"
+<<<<<<< Updated upstream
         app:cornerRadius="26sp" />
+=======
+        app:cornerRadius="26sp"
+        android:onClick="button_press" />
+>>>>>>> Stashed changes
 
     <Button
         android:id="@+id/button_8"
@@ -120,7 +146,12 @@
         android:layout_width="52sp"
         android:layout_height="52sp"
         android:textSize="26sp"
+<<<<<<< Updated upstream
         app:cornerRadius="26sp" />
+=======
+        app:cornerRadius="26sp"
+        android:onClick="button_press" />
+>>>>>>> Stashed changes
 
     <Button
         android:id="@+id/button_7"
@@ -134,7 +165,12 @@
         android:layout_width="52sp"
         android:layout_height="52sp"
         android:textSize="26sp"
+<<<<<<< Updated upstream
         app:cornerRadius="26sp" />
+=======
+        app:cornerRadius="26sp"
+        android:onClick="button_press" />
+>>>>>>> Stashed changes
 
     <Button
         android:id="@+id/button_9"
@@ -148,7 +184,12 @@
         android:layout_width="52sp"
         android:layout_height="52sp"
         android:textSize="26sp"
+<<<<<<< Updated upstream
         app:cornerRadius="26sp" />
+=======
+        app:cornerRadius="26sp"
+        android:onClick="button_press" />
+>>>>>>> Stashed changes
 
     <Button
         android:id="@+id/button_0"
@@ -161,7 +202,12 @@
         android:layout_width="52sp"
         android:layout_height="52sp"
         android:textSize="26sp"
+<<<<<<< Updated upstream
         app:cornerRadius="26sp" />
+=======
+        app:cornerRadius="26sp"
+        android:onClick="button_press" />
+>>>>>>> Stashed changes
 
     <Button
         android:id="@+id/button_point"
@@ -175,7 +221,12 @@
         android:layout_width="52sp"
         android:layout_height="52sp"
         android:textSize="26sp"
+<<<<<<< Updated upstream
         app:cornerRadius="26sp" />
+=======
+        app:cornerRadius="26sp"
+        android:onClick="button_press" />
+>>>>>>> Stashed changes
 
     <Button
         android:id="@+id/button_del"

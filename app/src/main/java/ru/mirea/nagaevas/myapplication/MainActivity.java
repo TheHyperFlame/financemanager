@@ -43,6 +43,76 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, StoryActivity.class);
             startActivity(intent);
         });
+<<<<<<< Updated upstream
 
     }
+=======
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1){
+            recreate();
+        }
+    }
+
+    public void button_press(View view) {
+        enter_sum.setText(String.format("%s%s", enter_sum.getText(),
+                ((TextView) view).getText().toString()));
+    }
+
+    public void button_back_press(View view) {
+        enter_sum.setText(enter_sum.getText().subSequence(0, enter_sum.getText().length()-1));
+    }
+
+    public void add_button_press(View view) {
+        if (enter_sum.getText().length() > 0 && !enter_sum.getText().toString().equals(".")) {
+            myDb.addSpending(date, category_input.trim(),
+                    Float.valueOf(enter_sum.getText().toString().trim()));
+        }
+        recreate();
+    }
+
+    public void transport_button_press(View view) {
+        category_input = "Транспорт";
+    }
+    public void clothes_button_press(View view) {
+        category_input = "Одежда";
+    }
+    public void fun_button_press(View view) {
+        category_input = "Развлечения";
+    }
+    public void house_button_press(View view) {
+        category_input = "Дом";
+    }
+    public void food_button_press(View view) {
+        category_input = "Еда";
+    }
+    public void other_button_press(View view) {
+        category_input = "Другое";
+    }
+
+    void countTodaySpending () {
+        Cursor cursor = myDb.readAllData();
+        if (cursor.getCount() == 0) { //если нет записей в бд
+            total_sum = 0f;
+        }
+        else {
+            for (int i = 0; i < cursor.getCount(); i++) {
+                cursor.moveToNext();
+                if (date.trim().equals(cursor.getString(1).trim()))
+                {
+                    total_sum += Float.valueOf(cursor.getString(3));
+                }
+            }
+        }
+        DecimalFormat df = new DecimalFormat("#.##");
+        total_sum = Float.valueOf(df.format(total_sum));
+        spent_today.setText(spent_today.getText() + " " + total_sum.toString().trim() + "₽");
+
+
+    }
+
+>>>>>>> Stashed changes
 }
