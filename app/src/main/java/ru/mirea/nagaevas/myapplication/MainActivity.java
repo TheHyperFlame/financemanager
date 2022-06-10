@@ -38,11 +38,11 @@ public class MainActivity extends AppCompatActivity {
             myDb.addSpending(date, category_input.getText().toString().trim(), Float.valueOf(sum_input.getText().toString().trim()));
 
         });*/
-        //story_button = findViewById(R.id.story_button);
-        /*story_button.setOnClickListener(view -> {
+        story_button = findViewById(R.id.history);
+        story_button.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, StoryActivity.class);
             startActivity(intent);
-        });*/
+        });
 
     }
 }
