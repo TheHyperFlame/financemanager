@@ -37,12 +37,13 @@ public class MainActivity extends AppCompatActivity {
         myDb = new MyDatabaseHelper(MainActivity.this);
         setContentView(R.layout.activity_main);
         calendar = Calendar.getInstance();
-        dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+        dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         date = dateFormat.format(calendar.getTime());
         enter_sum = findViewById(R.id.enter_sum);
         add_button = findViewById(R.id.add_button);
         story_button = findViewById(R.id.history);
         spent_today = findViewById(R.id.spent_today);
+        category_input = "Другое";
         countTodaySpending();
 
         story_button.setOnClickListener(view -> {
@@ -121,6 +122,18 @@ public class MainActivity extends AppCompatActivity {
     }
     public void clothes_button_press(View view) {
         category_input = "Одежда";
+    }
+    public void fun_button_press(View view) {
+        category_input = "Развлечения";
+    }
+    public void house_button_press(View view) {
+        category_input = "Дом";
+    }
+    public void food_button_press(View view) {
+        category_input = "Еда";
+    }
+    public void other_button_press(View view) {
+        category_input = "Другое";
     }
 
     void countTodaySpending () {

@@ -11,5 +11,5 @@
     <string name="food_button">Еда</string>
     <string name="home_button">Дом</string>
     <string name="games_button">Развлечения</string>
-    <string name="other_button">Разное</string>
+    <string name="other_button">Другое</string>
 </resources>

@@ -32,7 +32,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         String query =
                 "CREATE TABLE " + TABLE_NAME +
                         " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                        COLUMN_DATE + " TEXT, " +
+                        COLUMN_DATE + " DATE, " +
                         COLUMN_CATEGORY + " TEXT, " +
                         COLUMN_SUM + " REAL);";
         db.execSQL(query);
