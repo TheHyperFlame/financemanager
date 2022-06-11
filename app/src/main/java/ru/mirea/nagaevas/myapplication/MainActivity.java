@@ -86,10 +86,10 @@ public class MainActivity extends AppCompatActivity {
 
     DecimalFormat df = new DecimalFormat("#.##");
     public void add_button_press(View view) {
-        if (enter_sum.getText().length() > 0 && !enter_sum.getText().toString().equals("."))
-            final_sum = Float.valueOf(enter_sum.getText().toString());
-            final_sum = Float.valueOf(df.format(final_sum));
-            myDb.addSpending(date, category_input.trim(), Float.valueOf(final_sum));
+        if (enter_sum.getText().length() > 0 && enter_sum.getText().toString().matches("\\d+\\.?\\d*"))
+            //final_sum = Float.valueOf(enter_sum.getText().toString());
+            //final_sum = Float.valueOf(df.format(final_sum));
+            myDb.addSpending(date, category_input.trim(), Float.valueOf(enter_sum.getText().toString()));
         recreate();
     }
 

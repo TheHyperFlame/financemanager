@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 public class UpdateActivity extends AppCompatActivity {
 
-    EditText categor_edit, sum_edit;
+    EditText sum_edit;
     Button save_button, delete_button;
     String id, category, sum;
     String[] categories = {"Еда", "Транспорт", "Дом", "Развлечения", "Одежда", "Другое"};
