@@ -81,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void button_back_press(View view) {
-        enter_sum.setText(enter_sum.getText().subSequence(0, enter_sum.getText().length()-1));
+        if (enter_sum.getText().length() > 0)
+            enter_sum.setText(enter_sum.getText().subSequence(0, enter_sum.getText().length()-1));
     }
 
     DecimalFormat df = new DecimalFormat("#.##");
